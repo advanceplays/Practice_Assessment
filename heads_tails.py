@@ -5,9 +5,13 @@
     description: This is about commenting your code
 '''
 #-------------libraries-------------------
-import random
+import random   #use randint to get random numbers or choice to select from list
 
 #----------------functions-----------------------
+#------------------------------------------------
+#This function gets a random number to 
+#choose from a list of heads or tails like a coin flip
+#------------------------------------------------
 def heads_tails():
     user_score = 0
     computer_score = 0
@@ -29,8 +33,23 @@ def heads_tails():
         print("{}, you lost that game" .format(first_name))
 
 #-------------main program----------------------------------
-print("Hi! Welcome to my Heads or Tails game") #greeting
-first_name = str(input("What is your name: "))
-age = int(input("What is your age: ")) #changing striong input to integer
+valid = True #looping my validation
+print("Hi! Welcome to my Heads or Tails game") #greeting 
+first_name = str(input("What is your name: "))  
 
-heads_tails() #this calls up the function
+#validating the user input for age
+while(valid):
+    try:
+        age = int(input("What is your age: ")) #changing string input to integer 1-18   1 and 18 plus test 0 and 19
+    except:
+        print('You did not enter a valid number')
+        continue
+    
+    if (age >= 12 and age <= 65): #range check for merit
+        if (age == None and age.isdecimal()):
+        #valid = False
+            break #jumping statemant leaves the loop
+    else:
+        print('You enter an age out of range from 12-65')
+
+heads_tails() #calling a function with no parameter
